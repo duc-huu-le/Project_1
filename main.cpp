@@ -60,13 +60,13 @@ int main()
             getPGMData(original); // Save data from selected image to original
             switch (OprNum) {
                 case 0:
-                    processed = copyImage(original, width, height);
+                    processed = copyImage(original, height, width);
                     break;
                 case 1:
-                    processed = flipVertical(original, width, height);
+                    processed = flipVertical(original, height, width);
                     break;
                 case 2:
-                    processed = flipHorizontal(original, width, height);
+                    processed = flipHorizontal(original, height, width);
                     break;
                 default:
                     cout << "Wrong Operation Input" << endl;
@@ -95,10 +95,7 @@ int main()
             }
             delete original;
 
-            for (int i = 0; i < height; i++) {
-                delete[] processed[i];
-            }
-            delete processed;
+
             cout << "Clean-up finished." << endl;
             //cout << "Perform another operation [y/n]?";
             //cin >> repeat;
